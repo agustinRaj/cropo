@@ -103,49 +103,110 @@ export default function Dashboard() {
     );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#2d2320] via-[#fff7f0] to-[#3d2320]">
+    <div className="min-h-screen h-full bg-gradient-to-r from-[#2d2320] via-[#fff7f0] to-[#3d2320] px-2 sm:px-4 md:px-8">
       {/* Navbar */}
-      <nav className="bg-gradient-to-r from-[#2d2320] via-[#3d2320] to-[#fff7f0] bg-opacity-95 shadow-lg flex items-center justify-between px-8 py-4 sticky top-0 z-20 border-b border-peach/30 backdrop-blur-md">
-        <div className="flex items-center gap-6">
-          <span className="text-2xl font-extrabold text-peach tracking-tight drop-shadow">
+      <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-[#1a1412] via-[#2d2320] to-[#3d2320] bg-opacity-95 shadow-lg flex flex-wrap md:flex-nowrap flex-row items-center justify-between px-2 sm:px-8 py-3 z-30 border-b border-peach/30 backdrop-blur-md">
+        <div className="flex items-center gap-3 sm:gap-6 flex-shrink-0 min-w-0">
+          <span className="flex items-center gap-2 text-2xl font-extrabold text-peach tracking-tight drop-shadow whitespace-nowrap">
+            <svg
+              className="w-8 h-8 text-peach-dark"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="2"
+                fill="#f5e4d6"
+              />
+              <path
+                d="M8 12h8M12 8v8"
+                stroke="#e48b6b"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
             Cropo
           </span>
-          <a
-            href="/dashboard"
-            className="text-gray-100 hover:text-peach font-semibold px-4 py-2 rounded transition-colors duration-200 hover:bg-peach/10"
-          >
-            Home
-          </a>
-          <a
-            href="#services"
-            className="text-gray-100 hover:text-peach font-semibold px-4 py-2 rounded transition-colors duration-200 hover:bg-peach/10"
-          >
-            Services
-          </a>
-          <a
-            href="#contact"
-            className="text-gray-100 hover:text-peach font-semibold px-4 py-2 rounded transition-colors duration-200 hover:bg-peach/10"
-          >
-            Contact
-          </a>
         </div>
-        <div className="flex items-center gap-4">
-          <span className="font-semibold text-gray-100 bg-peach/30 px-3 py-1 rounded-full shadow-sm">
-            {profile?.name || user?.email}
+        <div className="flex-1 flex justify-center items-center min-w-0">
+          <div className="flex gap-1 sm:gap-4 md:gap-8 w-full justify-center">
+            <a
+              href="/dashboard"
+              className="text-peach hover:text-white font-semibold px-3 sm:px-5 py-2 rounded shadow-sm hover:shadow-lg transition-colors duration-200 hover:bg-peach-dark focus:outline-none focus:ring-2 focus:ring-peach-dark whitespace-nowrap focus:bg-peach-dark focus:text-white"
+            >
+              Home
+            </a>
+            <a
+              href="#services"
+              className="text-peach hover:text-white font-semibold px-3 sm:px-5 py-2 rounded shadow-sm hover:shadow-lg transition-colors duration-200 hover:bg-peach-dark focus:outline-none focus:ring-2 focus:ring-peach-dark whitespace-nowrap focus:bg-peach-dark focus:text-white"
+            >
+              Services
+            </a>
+            <a
+              href="#contact"
+              className="text-peach hover:text-white font-semibold px-3 sm:px-5 py-2 rounded shadow-sm hover:shadow-lg transition-colors duration-200 hover:bg-peach-dark focus:outline-none focus:ring-2 focus:ring-peach-dark whitespace-nowrap focus:bg-peach-dark focus:text-white"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0 min-w-0">
+          <span className="font-semibold text-gray-100 bg-peach/30 px-2 sm:px-3 py-1 rounded-full shadow-sm text-xs sm:text-base flex items-center gap-2 max-w-[140px] sm:max-w-xs truncate">
+            <svg
+              className="w-5 h-5 text-peach-dark"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5.121 17.804A13.937 13.937 0 0112 15c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+            </svg>
+            <span className="truncate">{profile?.name || user?.email}</span>
           </span>
           <button
             onClick={handleLogout}
-            className="bg-peach-dark text-white px-5 py-2 rounded-lg font-bold shadow hover:bg-peach transition duration-200"
+            className="bg-peach text-peach-dark px-3 sm:px-5 py-2 rounded-lg font-bold shadow-md hover:bg-peach-dark hover:text-white border-2 border-peach-dark focus:outline-none focus:ring-2 focus:ring-peach-dark transition duration-200 text-xs sm:text-base flex items-center gap-2 group"
           >
+            <svg
+              className="w-5 h-5 text-peach-dark group-hover:text-white transition"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17 16l4-4m0 0l-4-4m4 4H7"
+              />
+            </svg>
             Logout
           </button>
         </div>
       </nav>
-      <div className="max-w-xl mx-auto bg-white rounded-2xl shadow-xl p-8 mt-10 border border-peach/20">
+      <div className="pt-[76px]" />
+      <div className="max-w-xl w-full min-h-[calc(100vh-120px)] mx-auto bg-white rounded-2xl shadow-xl p-4 sm:p-8 mt-6 sm:mt-10 border border-peach/20 flex flex-col justify-start">
+        <div className="mb-8 text-center">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#2d2320] drop-shadow mb-2 animate-fade-in">
+            Welcome, {profile?.name || user?.email}!
+          </h1>
+          <p className="text-lg sm:text-xl text-[#3d2320] font-medium animate-fade-in-slow">
+            Manage your passport photos securely and easily.
+          </p>
+        </div>
         <div className="mb-8">
-          <h3 className="font-semibold mb-3 text-xl text-peach-dark flex items-center gap-2">
+          <h3 className="font-semibold mb-3 text-lg sm:text-xl text-peach-dark flex items-center gap-2">
             <svg
-              className="w-6 h-6 text-peach-dark"
+              className="w-5 sm:w-6 h-5 sm:h-6 text-peach-dark"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -159,19 +220,23 @@ export default function Dashboard() {
             </svg>
             Profile Info
           </h3>
-          <div className="mb-1 text-gray-700">
+          <div className="mb-1 text-gray-700 text-sm sm:text-base">
             Email:{" "}
-            <span className="font-mono text-peach-dark">{user?.email}</span>
+            <span className="font-mono text-peach-dark break-all">
+              {user?.email}
+            </span>
           </div>
-          <div className="mb-1 text-gray-700">
+          <div className="mb-1 text-gray-700 text-sm sm:text-base">
             Name:{" "}
-            <span className="font-mono text-peach-dark">{profile?.name}</span>
+            <span className="font-mono text-peach-dark break-all">
+              {profile?.name}
+            </span>
           </div>
         </div>
         <div>
-          <h3 className="font-semibold mb-3 text-lg text-peach-dark flex items-center gap-2">
+          <h3 className="font-semibold mb-3 text-base sm:text-lg text-peach-dark flex items-center gap-2">
             <svg
-              className="w-5 h-5 text-peach-dark"
+              className="w-4 sm:w-5 h-4 sm:h-5 text-peach-dark"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -189,10 +254,10 @@ export default function Dashboard() {
             type="file"
             accept="image/*"
             onChange={handleFileChange}
-            className="mb-3 block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-peach file:text-peach-dark hover:file:bg-peach-dark hover:file:text-white transition"
+            className="mb-3 block w-full text-xs sm:text-sm text-gray-600 file:mr-2 sm:file:mr-4 file:py-2 file:px-3 sm:file:px-4 file:rounded-full file:border-0 file:text-xs sm:file:text-sm file:font-semibold file:bg-peach file:text-peach-dark hover:file:bg-peach-dark hover:file:text-white transition"
           />
           {imageUrl && (
-            <div className="bg-gray-50 border border-peach/20 rounded-lg p-4 flex flex-col items-center">
+            <div className="bg-gray-50 border border-peach/20 rounded-lg p-2 sm:p-4 flex flex-col items-center">
               <ReactCrop
                 crop={crop}
                 onChange={(c) => setCrop(c)}
@@ -205,19 +270,32 @@ export default function Dashboard() {
                   src={imageUrl}
                   alt="To crop"
                   ref={(el) => setCropImageRef(el)}
-                  className="rounded shadow max-w-xs max-h-96 border border-peach/30"
+                  className="rounded shadow max-w-[180px] sm:max-w-xs max-h-60 sm:max-h-96 border border-peach/30"
                 />
               </ReactCrop>
-              <div className="flex gap-4 mt-4">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-4 w-full justify-center">
                 <button
-                  className="bg-peach-dark text-white px-6 py-2 rounded-lg font-bold shadow hover:bg-peach transition duration-200"
+                  className="bg-peach text-peach-dark px-4 sm:px-6 py-2 rounded-lg font-bold shadow-md hover:bg-peach-dark hover:text-white border-2 border-peach-dark focus:outline-none focus:ring-2 focus:ring-peach-dark transition duration-200 text-xs sm:text-base flex items-center gap-2 group"
                   onClick={handleCropComplete}
                   type="button"
                 >
+                  <svg
+                    className="w-5 h-5 text-peach-dark group-hover:text-white transition"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
                   Crop & Upload
                 </button>
                 <button
-                  className="bg-gray-700 text-white px-6 py-2 rounded-lg font-bold shadow hover:bg-gray-900 transition duration-200"
+                  className="bg-gray-200 text-gray-700 px-4 sm:px-6 py-2 rounded-lg font-bold shadow-md hover:bg-gray-300 hover:text-peach-dark border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-peach-dark transition duration-200 text-xs sm:text-base flex items-center gap-2 group"
                   type="button"
                   onClick={() => {
                     setImageUrl(null);
@@ -225,6 +303,19 @@ export default function Dashboard() {
                     setCropImageRef(null);
                   }}
                 >
+                  <svg
+                    className="w-5 h-5 text-gray-700 group-hover:text-peach-dark transition"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
                   Load Another Photo
                 </button>
               </div>
@@ -232,7 +323,7 @@ export default function Dashboard() {
           )}
           {croppedImage && (
             <div className="mt-6 flex flex-col items-center">
-              <h4 className="font-semibold text-peach-dark">
+              <h4 className="font-semibold text-peach-dark text-sm sm:text-base">
                 Cropped Passport Photo:
               </h4>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -249,11 +340,11 @@ export default function Dashboard() {
       {/* Services Section */}
       <section
         id="services"
-        className="max-w-3xl mx-auto mt-16 mb-8 p-8 bg-white rounded-2xl shadow-xl border border-peach/20"
+        className="max-w-3xl w-full mx-auto mt-10 sm:mt-16 mb-6 sm:mb-8 p-4 sm:p-8 bg-white rounded-2xl shadow-xl border border-peach/20"
       >
-        <h2 className="text-2xl font-extrabold mb-4 text-peach-dark flex items-center gap-2">
+        <h2 className="text-xl sm:text-2xl font-extrabold mb-4 text-peach-dark flex items-center gap-2">
           <svg
-            className="w-6 h-6 text-peach-dark"
+            className="w-5 sm:w-6 h-5 sm:h-6 text-peach-dark"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -267,7 +358,7 @@ export default function Dashboard() {
           </svg>
           Our Services
         </h2>
-        <ul className="list-disc pl-8 text-gray-700 space-y-2 text-lg">
+        <ul className="list-disc pl-5 sm:pl-8 text-gray-700 space-y-2 text-base sm:text-lg">
           <li>Passport-size photo upload, crop, and download</li>
           <li>Automatic aspect ratio and size enforcement</li>
           <li>Secure cloud storage for your photos</li>
@@ -279,11 +370,11 @@ export default function Dashboard() {
       {/* Contact Section */}
       <section
         id="contact"
-        className="max-w-3xl mx-auto mb-16 p-8 bg-white rounded-2xl shadow-xl border border-peach/20"
+        className="max-w-3xl w-full mx-auto mb-10 sm:mb-16 p-4 sm:p-8 bg-white rounded-2xl shadow-xl border border-peach/20"
       >
-        <h2 className="text-2xl font-extrabold mb-4 text-peach-dark flex items-center gap-2">
+        <h2 className="text-xl sm:text-2xl font-extrabold mb-4 text-peach-dark flex items-center gap-2">
           <svg
-            className="w-6 h-6 text-peach-dark"
+            className="w-5 sm:w-6 h-5 sm:h-6 text-peach-dark"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -297,10 +388,10 @@ export default function Dashboard() {
           </svg>
           Contact Us
         </h2>
-        <p className="mb-3 text-gray-700 text-lg">
+        <p className="mb-3 text-gray-700 text-base sm:text-lg">
           Have questions or need help? Reach out to our support team:
         </p>
-        <ul className="text-gray-700 text-lg">
+        <ul className="text-gray-700 text-base sm:text-lg">
           <li>
             Email:{" "}
             <a

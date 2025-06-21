@@ -23,18 +23,27 @@ export default function Login() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#f5e4d6]">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-[#2d2320] via-[#fff7f0] to-[#3d2320]">
+      <div className="mb-8 text-center">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#2d2320] drop-shadow mb-2 animate-fade-in">
+          Welcome to Cropo!
+        </h1>
+        <p className="text-lg sm:text-xl text-[#3d2320] font-medium animate-fade-in-slow">
+          Secure, simple passport photo cropping and upload.
+        </p>
+      </div>
       <form
         onSubmit={handleLogin}
-        className="bg-white p-8 rounded-xl shadow w-full max-w-md space-y-6 border border-gray-200"
+        className="bg-[#2d2320] p-8 rounded-xl shadow w-full max-w-md space-y-6 border border-peach/30"
       >
-        <h2 className="text-3xl font-bold mb-4 text-center text-gray-800">
+        <h2 className="text-3xl font-bold mb-4 text-center text-peach-dark">
           Login
         </h2>
         <input
           type="email"
           placeholder="Email address"
-          className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition placeholder-gray-400 text-base"
+          autoComplete="username"
+          className="w-full px-4 py-3 border border-peach-dark bg-[#fff7f0] text-[#2d2320] rounded focus:outline-none focus:ring-2 focus:ring-peach-dark transition placeholder-peach-dark text-base"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -42,23 +51,24 @@ export default function Login() {
         <input
           type="password"
           placeholder="Password"
-          className="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 transition placeholder-gray-400 text-base"
+          autoComplete="current-password"
+          className="w-full px-4 py-3 border border-peach-dark bg-[#fff7f0] text-[#2d2320] rounded focus:outline-none focus:ring-2 focus:ring-peach-dark transition placeholder-peach-dark text-base"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
         {error && (
-          <div className="text-red-500 text-sm text-center">{error}</div>
+          <div className="text-red-400 text-sm text-center">{error}</div>
         )}
         <button
           type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded transition"
+          className="w-full bg-peach-dark hover:bg-peach text-white font-semibold py-3 rounded transition"
         >
           Login
         </button>
-        <p className="text-sm text-center mt-2 text-gray-600">
+        <p className="text-sm text-center mt-2 text-peach-dark">
           Don&apos;t have an account?{" "}
-          <a href="/register" className="text-blue-600 hover:underline">
+          <a href="/register" className="text-peach-dark hover:underline">
             Register
           </a>
         </p>
